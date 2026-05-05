@@ -1,0 +1,7 @@
+{
+  "extends": "@tanstack-effect-convex/config/tsconfig.base.json",
+  "compilerOptions": {
+    "strictNullChecks": true
+  },
+  "exclude": [".agents", ".agent", ".claude"]
+}

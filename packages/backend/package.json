@@ -1,0 +1,49 @@
+{
+  "name": "@tanstack-effect-convex/backend",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "exports": {
+    "./api": "./src/convex/_generated/api.js",
+    "./contracts": "./src/contracts/index.ts",
+    "./dataModel": "./src/convex/_generated/dataModel.js"
+  },
+  "scripts": {
+    "dev": "concurrently \"convex dev\" \"node scripts/watch-codegen.mjs\"",
+    "dev:setup": "convex dev --configure --until-success",
+    "check-types": "tsc -p src/convex/tsconfig.json --noEmit",
+    "codegen:contract": "tsx scripts/contract-codegen.ts",
+    "predev": "pnpm codegen:contract",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@better-auth/expo": "^1.4.9",
+    "@convex-dev/better-auth": "catalog:",
+    "@effect/opentelemetry": "^0.61.0",
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.211.0",
+    "@opentelemetry/resources": "^2.5.0",
+    "@opentelemetry/sdk-node": "^0.211.0",
+    "@opentelemetry/semantic-conventions": "^1.39.0",
+    "better-auth": "catalog:",
+    "convex": "catalog:",
+    "dotenv": "catalog:",
+    "effect": "catalog:"
+  },
+  "devDependencies": {
+    "@edge-runtime/vm": "^5.0.0",
+    "@effect/language-service": "catalog:",
+    "@effect/vitest": "^0.27.0",
+    "@parcel/watcher": "^2.5.6",
+    "@tanstack-effect-convex/config": "workspace:*",
+    "@types/node": "catalog:",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^9.2.1",
+    "convex-test": "^0.0.41",
+    "ts-morph": "^27.0.2",
+    "typescript": "catalog:",
+    "vite": "^7.3.0",
+    "vitest": "^4.0.18"
+  }
+}
